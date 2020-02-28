@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name/>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name/>
+        <script><![CDATA[var SDK = require('@ringcentral/sdk').SDK;
+
+RINGCENTRAL_CLIENTID = 'FAZ6Gc13Q_O0IUn-fd_R7w';
+RINGCENTRAL_CLIENTSECRET = 'kTl54TujRIuyh3Q-g_sfhw1njhtSDAQnWjaIHswmaM6w';
+RINGCENTRAL_SERVER = 'https://platform.devtest.ringcentral.com';
+
+RINGCENTRAL_USERNAME = '+442038783613';
+RINGCENTRAL_PASSWORD = 'Inactive';
+RINGCENTRAL_EXTENSION = '301';
+
+var rcsdk = new SDK({
+    server: RINGCENTRAL_SERVER,
+    clientId: RINGCENTRAL_CLIENTID,
+    clientSecret: RINGCENTRAL_CLIENTSECRET
+});
+var platform = rcsdk.platform();
+platform.login({
+    username: RINGCENTRAL_USERNAME,
+    password: RINGCENTRAL_PASSWORD,
+    extension: RINGCENTRAL_EXTENSION
+    })
+    .then(function(resp) {
+    platform.post('/restapi/v1.0/account/~/extension/~/meeting', {
+            topic: 'Test Meeting',
+            meetingType: 'scheduled',
+            schedule:{
+                startTime: '2020-02-05T19:00:00Z'
+            },
+            allowJoinBeforeHost: true,
+            startHostVideo: true,
+            startParticipantsVideo: false
+          })
+        .then(function(resp) {
+          return resp.json();
+        })
+        .then(function (json) {
+            console.log('Start Your Meeting: ' + json.links.startUri );
+            console.log('Join the Meeting: ' + json.links.joinUri );
+        });
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-02-06 11:04:17</sys_created_on>
+        <sys_id>53825765db720010c4d627374896193c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="test-cerema" source="x_456304_test_cere">9bc74f69db320010c4d627374896194b</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="test-cerema">9bc74f69db320010c4d627374896194b</sys_scope>
+        <sys_update_name>sys_script_include_53825765db720010c4d627374896193c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-02-06 11:04:17</sys_updated_on>
+    </sys_script_include>
+</record_update>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="hello-word-test" max_length="40" name="x_456304_test_cere_st_hello_word_test" type="collection">
+        <element label="dateday" max_length="40" name="dateday" type="glide_date"/>
+        <element label="textinput" max_length="40" name="textinput" type="string"/>
+        <element label="Username" max_length="60" name="username" type="string"/>
+    </element>
+</database>

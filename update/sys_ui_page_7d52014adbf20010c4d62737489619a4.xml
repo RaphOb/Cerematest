@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script><![CDATA[angular.module('angularapp',[]);
+angular.module('angularapp').controller('AngularAppCtrl',function ($scope,$http){
+	//modules
+	
+	//end modules
+	
+// 	$scope.location = {
+//  displayValue: c.data.loc.name,
+//  value: c.data.loc.sys_id,
+//  name: 'location'
+// };
+ 
+// $scope.$on("field.change", function(evt, parms) {
+//  if (parms.field.name == 'location')
+//  c.data.setLocation = parms.newValue;
+ 
+//  c.server.update().then(function(response) {
+//  spUtil.update($scope);
+//  })
+// });
+
+	
+
+	
+	
+	$scope.myVar="";
+	$scope.i=0;
+	$scope.message ="";
+// 	$scope.user;
+    user = {};
+	console.log("ici c'est ok");
+	
+	$scope.submit = function() {
+/**
+*Script  Query
+*/
+// 	var quer = new GlideAjax('REST_API_CALL');
+// 	quer.addParam('sysparm_name','getQuery');
+// 	quer.getXML(getQuery);
+// 	function getQuery(response) {
+// 		var  answer = response.responseXML.documentElement.getAttribute("answer");
+// 		console.log("answer: " + answer);
+		
+// 	}	
+// 		var licences = [];
+// 		var meetingsList = [];
+// 		var result = [];
+// 		try {
+// 		var  meetings = new GlideRecord('x_456304_test_cere_meeting_ringcentral');
+// 		meetings.query();
+// 		var allLicence = new GlideRecord('x_456304_test_cere_licence_ringcentral');
+// 		allLicence.query();
+// 			while(meetings.next()) {
+// 				meetingsList.push(meetings.licence_id);
+// 				console.log(meetings.sys_id);
+// 			}
+// 			while(allLicence.next()) {
+// 				console.log(allLicence.sys_id);
+// 				licences.push(allLicence.sys_id);
+// 			}
+// 			console.log("licences : " +licences);
+// 			console.log("meetings : " + meetingsList );
+			
+// 			for (var i = 0; i <meetingsList.length; i ++ ) {
+// 				for (var j = 0; j <licences.length; j++) {
+// 					if (meetingsList[i] !== licences[j]) {
+// 						result.push(licences[j]);
+// 					}
+// 				}
+// 			}
+// } catch (ex) {
+// 	console.log("query error :" + ex);
+// 	}
+		
+// 		console.log("resultat : " +result );
+		
+		
+		
+		
+		
+		
+/**
+*Script  call API
+*/
+// 		console.log("DANS LE SUBMIT");
+// 	var gaj = new GlideAjax('REST_API_CALL');
+
+
+//        gaj.addParam('sysparm_name','getToken');
+
+
+//        gaj.getXML(getToken);
+
+ 
+// function getToken(response) {
+// 	var  answer = response.responseXML.documentElement.getAttribute("answer");
+//     console.log("answer: " + JSON.parse(answer).access_token);
+
+	/**get Mettings*/
+// 	var gaj2 = new GlideAjax('REST_API_CALL');
+//        gaj2.addParam('sysparm_name','getMeeting');
+// 	   gaj2.addParam('sysparm_value',JSON.parse(answer).access_token);
+//        gaj2.getXML(getMeetings);
+	
+	/** post Meeting*/
+// 	body = {"schedule":{"timeZone":{"id":"1"},"startTime":"2020-02-25T12:00:00Z","durationInMinutes":60},"allowJoinBeforeHost":false,"startHostVideo":false,"startParticipantsVideo":false,"topic":"name du topic","meetingType":"Scheduled"};
+// 	var postmeeting =  new GlideAjax('REST_API_CALL');
+// 	postmeeting.addParam('sysparm_name', 'postMeeting');
+// 	postmeeting.addParam('sysparm_body', JSON.stringify(body));
+// 	postmeeting.addParam('sysparm_token', JSON.parse(answer).access_token);
+// 	postmeeting.getXML(getMeetings);
+// 	function getMeetings(response2) {
+// 		var  answer2 = response2.responseXML.documentElement.getAttribute("answer");
+// 		console.log("answer2: " + answer2);
+// 		var gaj3 = new GlideAjax('REST_API_CALL');
+// 		gaj3.addParam('sysparm_name', 'deleteMeeting');
+// 		gaj3.addParam('sysparm_value',JSON.parse(answer).access_token);
+// 		gaj3.addParam('sysparm_id',"1486340643");
+// 		gaj3.getXML(getResponse);
+// 		function getResponse(response3) {
+// 			console.log("DELETE resp " + JSON.stringify(response3));
+// 		}
+// 	}
+// }
+	
+/**
+*Script save record to table
+*/
+//         var newrecord = new GlideRecord('x_456304_test_cere_test2_table');
+// 		newrecord.Username = g_user.userName;
+// 		newrecord.initialize();
+// 		console.log(this.userinput);
+// 		newrecord.textinput= this.userinput;
+// 		user.Username = g_user.userName;
+// 		newrecord.insert();
+// 		newrecord.query();
+// 		while (newrecord.hasNext()){
+// 			gs.print(newrecord);
+// 		}
+// 		user.Dateday = new Date();
+// 		user.Textinput = this.userinput;
+// 		alert(JSON.stringify(user));
+
+		/**
+		* Scrit select * where date = yesterday 
+		*/
+		var meetingIdToDelete = new Set();
+		console.log("avant la date");
+		var d = new Date();
+		d.setDate(d.getDate() - 1);
+		console.log(d.toISOString().slice(0,10));
+		var  meetingsCron = new GlideRecord('x_456304_test_cere_meeting_ringcentral');
+		console.log("avant addquery");
+		meetingsCron.addQuery('date','=',d.toISOString().slice(0,10));
+		console.log("add Query ok");
+		meetingsCron.query();
+		while(meetingsCron.next()) {
+			console.log(" les res ");
+			meetingIdToDelete.add(meetingsCron.sys_id);
+			console.log(meetingsCron);
+		}
+		
+		console.log(meetingIdToDelete);
+		
+		
+	};
+	
+	$scope.clearTxt = function() {
+		$scope.myVar="";
+		$scope.i++;
+		alert("the myVar value was cleare" + $scope.i +"times by " + g_user.userName + ".");
+	};
+	
+});
+]]></client_script>
+        <description/>
+        <direct>false</direct>
+        <endpoint>x_456304_test_cere_Angular hello world.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+ <g:requires name="scripts/lib/jquery_includes.js"/>
+
+
+   
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link>
+<div ng-app="angularapp" ng-controller="AngularAppCtrl as appctrl">
+	<form name="hellp-form" ng-submit="submit()">
+	<input type="text" ng-model="userinput"  placeholder="Enter some thext here"></input>
+		<input type="submit" value="submit"></input>
+		</form>
+
+	<div class="jumbotron">
+		<h1 class="display-3"> JPP laaa</h1>
+		<hr class="m-y-2"/>
+	</div>	
+	<button ng-click="clearTxt()" type="button" class="btn btn-primary"> Clear text</button>
+	
+	{{message | json}}
+<sn-record-picker field="location" table="'cmn_location'" display-field="'name'" value-field="'sys_id'" search-fields="'name'" page-size="100" ></sn-record-picker>
+
+
+<div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+        </script>
+    </div>
+</div>
+	</div>
+</j:jelly>]]></html>
+        <name>Angular hello world</name>
+        <processing_script/>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-02-07 13:50:16</sys_created_on>
+        <sys_id>7d52014adbf20010c4d62737489619a4</sys_id>
+        <sys_mod_count>216</sys_mod_count>
+        <sys_name>Angular hello world</sys_name>
+        <sys_package display_value="test-cerema" source="x_456304_test_cere">9bc74f69db320010c4d627374896194b</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="test-cerema">9bc74f69db320010c4d627374896194b</sys_scope>
+        <sys_update_name>sys_ui_page_7d52014adbf20010c4d62737489619a4</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-02-27 10:08:42</sys_updated_on>
+    </sys_ui_page>
+</record_update>

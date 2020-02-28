@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn">
+    <sys_rest_message_fn action="INSERT_OR_UPDATE">
+        <authentication_type>inherit_from_parent</authentication_type>
+        <basic_auth_password/>
+        <basic_auth_profile/>
+        <basic_auth_user>raphael.obadia@devoteamgcloud.com</basic_auth_user>
+        <content/>
+        <function_name>request token</function_name>
+        <http_method>post</http_method>
+        <lock>false</lock>
+        <oauth2_profile/>
+        <protocol_name/>
+        <qualified_name>RingCentral auth [ request token ]</qualified_name>
+        <rest_endpoint>https://platform.ringcentral.com/restapi/oauth/token</rest_endpoint>
+        <rest_message display_value="RingCentral auth">ce9c9895dbc30010c4d62737489619f2</rest_message>
+        <sys_class_name>sys_rest_message_fn</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-02-18 08:30:04</sys_created_on>
+        <sys_id>3e81ac29db434010c4d627374896191e</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>request token</sys_name>
+        <sys_package display_value="test-cerema" source="x_456304_test_cere">9bc74f69db320010c4d627374896194b</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="test-cerema">9bc74f69db320010c4d627374896194b</sys_scope>
+        <sys_update_name>sys_rest_message_fn_3e81ac29db434010c4d627374896191e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-02-19 13:31:47</sys_updated_on>
+        <use_basic_auth>false</use_basic_auth>
+        <use_mid_server/>
+        <use_mutual_auth>false</use_mutual_auth>
+    </sys_rest_message_fn>
+</record_update>

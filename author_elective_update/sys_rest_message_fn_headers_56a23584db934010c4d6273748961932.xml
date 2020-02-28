@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_headers">
+    <sys_rest_message_fn_headers action="DELETE">
+        <name>Authorization</name>
+        <rest_message_function display_value="delete meeting">0b527d08db934010c4d627374896195e</rest_message_function>
+        <sys_class_name>sys_rest_message_fn_headers</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-02-26 08:49:11</sys_created_on>
+        <sys_id>56a23584db934010c4d6273748961932</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Authorization</sys_name>
+        <sys_package display_value="test-cerema" source="x_456304_test_cere">9bc74f69db320010c4d627374896194b</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="test-cerema">9bc74f69db320010c4d627374896194b</sys_scope>
+        <sys_update_name>sys_rest_message_fn_headers_56a23584db934010c4d6273748961932</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-02-26 08:49:11</sys_updated_on>
+        <value>Basic YlI2a0VXbnFST1dUNENBTlFuMmdyQTpTNVYwLThPNFJvbUhTWHZTcDFWUWhBZ0pIdnQ0c1VSaENWZV9LeXdNWVJCUQ==</value>
+    </sys_rest_message_fn_headers>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="test-cerema">9bc74f69db320010c4d627374896194b</application>
+        <file_path/>
+        <instance_id>ac1bfac6db09f3844d2bac44d49619f5</instance_id>
+        <instance_name>dev84058</instance_name>
+        <name>sys_rest_message_fn_headers_56a23584db934010c4d6273748961932</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_headers"><sys_rest_message_fn_headers action="INSERT_OR_UPDATE"><name>Authorization</name><rest_message_function display_value="delete meeting">0b527d08db934010c4d627374896195e</rest_message_function><sys_class_name>sys_rest_message_fn_headers</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-02-26 08:49:11</sys_created_on><sys_id>56a23584db934010c4d6273748961932</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Authorization</sys_name><sys_package display_value="test-cerema" source="x_456304_test_cere">9bc74f69db320010c4d627374896194b</sys_package><sys_policy/><sys_scope display_value="test-cerema">9bc74f69db320010c4d627374896194b</sys_scope><sys_update_name>sys_rest_message_fn_headers_56a23584db934010c4d6273748961932</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-02-26 08:49:11</sys_updated_on><value>Basic YlI2a0VXbnFST1dUNENBTlFuMmdyQTpTNVYwLThPNFJvbUhTWHZTcDFWUWhBZ0pIdnQ0c1VSaENWZV9LeXdNWVJCUQ==</value></sys_rest_message_fn_headers></record_update>]]></payload>
+        <payload_hash>-1480450236</payload_hash>
+        <record_name>Authorization</record_name>
+        <reverted_from/>
+        <source>9fc74f69db320010c4d627374896194d</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-02-26 08:49:11</sys_created_on>
+        <sys_id>fdf3f948db934010c4d6273748961904</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17080af86600000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-02-26 08:49:11</sys_updated_on>
+        <type>HTTP Headers</type>
+        <update_guid>39f3f948f59340104fa9f40d28b5b404</update_guid>
+        <update_guid_history>39f3f948f59340104fa9f40d28b5b404:-1480450236</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-02-26 09:49:55</sys_created_on>
+        <sys_db_object display_value="" name="sys_rest_message_fn_headers">sys_rest_message_fn_headers</sys_db_object>
+        <sys_id>268c83e91a71472088e090a8ef621d10</sys_id>
+        <sys_metadata>56a23584db934010c4d6273748961932</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Authorization</sys_name>
+        <sys_package display_value="test-cerema" source="x_456304_test_cere">9bc74f69db320010c4d627374896194b</sys_package>
+        <sys_parent display_value="delete meeting">0b527d08db934010c4d627374896195e</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="test-cerema">9bc74f69db320010c4d627374896194b</sys_scope>
+        <sys_scope_delete display_value="">18430070fba14f6489917d0ebac5e484</sys_scope_delete>
+        <sys_update_name>sys_rest_message_fn_headers_56a23584db934010c4d6273748961932</sys_update_name>
+        <sys_update_version display_value="sys_rest_message_fn_headers_56a23584db934010c4d6273748961932">fdf3f948db934010c4d6273748961904</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-02-26 09:49:55</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

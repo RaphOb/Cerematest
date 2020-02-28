@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="test2-table" max_length="40" name="x_456304_test_cere_test2_table" type="collection">
+        <element label="date" max_length="40" name="date" type="glide_date"/>
+        <element label="textinput" max_length="40" name="textinput" type="string"/>
+    </element>
+</database>

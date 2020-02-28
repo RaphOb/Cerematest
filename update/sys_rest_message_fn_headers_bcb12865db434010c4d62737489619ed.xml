@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_headers">
+    <sys_rest_message_fn_headers action="INSERT_OR_UPDATE">
+        <name>Authorization</name>
+        <rest_message_function display_value="request token">3e81ac29db434010c4d627374896191e</rest_message_function>
+        <sys_class_name>sys_rest_message_fn_headers</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-02-18 08:30:04</sys_created_on>
+        <sys_id>bcb12865db434010c4d62737489619ed</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Authorization</sys_name>
+        <sys_package display_value="test-cerema" source="x_456304_test_cere">9bc74f69db320010c4d627374896194b</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="test-cerema">9bc74f69db320010c4d627374896194b</sys_scope>
+        <sys_update_name>sys_rest_message_fn_headers_bcb12865db434010c4d62737489619ed</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-02-18 08:30:04</sys_updated_on>
+        <value>Basic YlI2a0VXbnFST1dUNENBTlFuMmdyQTpTNVYwLThPNFJvbUhTWHZTcDFWUWhBZ0pIdnQ0c1VSaENWZV9LeXdNWVJCUQ==</value>
+    </sys_rest_message_fn_headers>
+</record_update>

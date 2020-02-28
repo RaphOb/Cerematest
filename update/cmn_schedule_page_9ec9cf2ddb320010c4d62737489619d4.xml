@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="cmn_schedule_page">
+    <cmn_schedule_page action="INSERT_OR_UPDATE">
+        <client_script/>
+        <description/>
+        <header_html/>
+        <init_function/>
+        <name>Pick a date</name>
+        <server_script/>
+        <sys_class_name>cmn_schedule_page</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-02-06 10:23:59</sys_created_on>
+        <sys_id>9ec9cf2ddb320010c4d62737489619d4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Pick a date</sys_name>
+        <sys_package display_value="test-cerema" source="x_456304_test_cere">9bc74f69db320010c4d627374896194b</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="test-cerema">9bc74f69db320010c4d627374896194b</sys_scope>
+        <sys_update_name>cmn_schedule_page_9ec9cf2ddb320010c4d62737489619d4</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-02-06 10:23:59</sys_updated_on>
+        <type/>
+        <view_type>Calendar</view_type>
+    </cmn_schedule_page>
+</record_update>

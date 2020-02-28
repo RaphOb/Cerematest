@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role_contains">
+    <sys_user_role_contains action="INSERT_OR_UPDATE">
+        <contains display_value="user_admin" name="user_admin">049d55090a0a0a660162aa57a266b241</contains>
+        <role display_value="x_456304_test_cere.hello_word_test_user" name="x_456304_test_cere.hello_word_test_user">e8a96785db030010c4d6273748961904</role>
+        <sys_class_name>sys_user_role_contains</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-02-19 14:39:42</sys_created_on>
+        <sys_id>4811c7fddb070010c4d6273748961907</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>user_admin.x_456304_test_cere.hello_word_test_user</sys_name>
+        <sys_package display_value="test-cerema" source="x_456304_test_cere">9bc74f69db320010c4d627374896194b</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="test-cerema">9bc74f69db320010c4d627374896194b</sys_scope>
+        <sys_update_name>sys_user_role_contains_4811c7fddb070010c4d6273748961907</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-02-19 14:39:42</sys_updated_on>
+    </sys_user_role_contains>
+</record_update>

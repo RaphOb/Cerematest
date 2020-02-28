@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="username" label="Username" language="en" table="x_456304_test_cere_st_hello_word_test">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>username</element>
+            <help/>
+            <hint/>
+            <label>Username</label>
+            <language>en</language>
+            <name>x_456304_test_cere_st_hello_word_test</name>
+            <plural>Usernames</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-02-17 09:46:41</sys_created_on>
+            <sys_id>1cdaef85db030010c4d6273748961924</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Username</sys_name>
+            <sys_package display_value="test-cerema" source="x_456304_test_cere">9bc74f69db320010c4d627374896194b</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="test-cerema">9bc74f69db320010c4d627374896194b</sys_scope>
+            <sys_update_name>sys_documentation_x_456304_test_cere_st_hello_word_test_username_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-02-17 09:46:41</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

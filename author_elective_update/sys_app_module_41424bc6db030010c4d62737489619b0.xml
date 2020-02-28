@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module">
+    <sys_app_module action="DELETE">
+        <active>true</active>
+        <application display_value="user-cerem">0d424bc6db030010c4d62737489619ad</application>
+        <assessment/>
+        <device_type/>
+        <filter/>
+        <hint/>
+        <homepage/>
+        <image/>
+        <link_type>LIST</link_type>
+        <map_page/>
+        <mobile_title>user-cerems</mobile_title>
+        <mobile_view_name>Mobile</mobile_view_name>
+        <name>x_456304_test_cere_user_cerem</name>
+        <order/>
+        <override_menu_roles>false</override_menu_roles>
+        <query/>
+        <report/>
+        <roles>user</roles>
+        <sys_class_name>sys_app_module</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-02-20 09:23:25</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>41424bc6db030010c4d62737489619b0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>user-cerems</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="test-cerema" source="x_456304_test_cere">9bc74f69db320010c4d627374896194b</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="test-cerema">9bc74f69db320010c4d627374896194b</sys_scope>
+        <sys_update_name>sys_app_module_41424bc6db030010c4d62737489619b0</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-02-20 09:23:25</sys_updated_on>
+        <timeline_page/>
+        <title>user-cerems</title>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+        <window_name/>
+    </sys_app_module>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="test-cerema">9bc74f69db320010c4d627374896194b</application>
+        <file_path/>
+        <instance_id>ac1bfac6db09f3844d2bac44d49619f5</instance_id>
+        <instance_name>dev84058</instance_name>
+        <name>sys_app_module_41424bc6db030010c4d62737489619b0</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module"><sys_app_module action="INSERT_OR_UPDATE"><active>true</active><application display_value="user-cerem">0d424bc6db030010c4d62737489619ad</application><assessment/><device_type/><filter/><hint/><homepage/><image/><link_type>LIST</link_type><map_page/><mobile_title>user-cerems</mobile_title><mobile_view_name>Mobile</mobile_view_name><name>x_456304_test_cere_user_cerem</name><order/><override_menu_roles>false</override_menu_roles><query/><report/><roles>user</roles><sys_class_name>sys_app_module</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-02-20 09:23:25</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>41424bc6db030010c4d62737489619b0</sys_id><sys_mod_count>0</sys_mod_count><sys_name>user-cerems</sys_name><sys_overrides/><sys_package display_value="test-cerema" source="x_456304_test_cere">9bc74f69db320010c4d627374896194b</sys_package><sys_policy/><sys_scope display_value="test-cerema">9bc74f69db320010c4d627374896194b</sys_scope><sys_update_name>sys_app_module_41424bc6db030010c4d62737489619b0</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-02-20 09:23:25</sys_updated_on><timeline_page/><title>user-cerems</title><uncancelable>false</uncancelable><view_name/><window_name/></sys_app_module></record_update>]]></payload>
+        <payload_hash>1967852367</payload_hash>
+        <record_name>user-cerems</record_name>
+        <reverted_from/>
+        <source>9fc74f69db320010c4d627374896194d</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-02-20 09:23:25</sys_created_on>
+        <sys_id>cd424bc6db030010c4d62737489619b1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17061e8b66d0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-02-20 09:23:25</sys_updated_on>
+        <type>Module</type>
+        <update_guid>09424bc66a030010b38ccae58fc8cdb1</update_guid>
+        <update_guid_history>09424bc66a030010b38ccae58fc8cdb1:1967852367</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="user-cerems">94f2870adb030010c4d62737489619fd</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-02-20 09:26:23</sys_created_on>
+        <sys_db_object display_value="" name="sys_app_module">sys_app_module</sys_db_object>
+        <sys_id>0acdadff7e6e40db808b7905eafb0759</sys_id>
+        <sys_metadata>41424bc6db030010c4d62737489619b0</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>user-cerems</sys_name>
+        <sys_package display_value="test-cerema" source="x_456304_test_cere">9bc74f69db320010c4d627374896194b</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="test-cerema">9bc74f69db320010c4d627374896194b</sys_scope>
+        <sys_scope_delete display_value="">18430070fba14f6489917d0ebac5e484</sys_scope_delete>
+        <sys_update_name>sys_app_module_41424bc6db030010c4d62737489619b0</sys_update_name>
+        <sys_update_version display_value="sys_app_module_41424bc6db030010c4d62737489619b0">cd424bc6db030010c4d62737489619b1</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-02-20 09:26:23</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

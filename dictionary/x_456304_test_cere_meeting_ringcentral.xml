@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Meeting-ringcentral" max_length="40" name="x_456304_test_cere_meeting_ringcentral" type="collection">
+        <element label="Date" max_length="40" name="date" type="glide_date"/>
+        <element label="Join URL" max_length="40" name="join_url" type="string"/>
+        <element label="Licence_id" max_length="32" name="licence_id" reference="x_456304_test_cere_licence_ringcentral" type="reference"/>
+        <element label="Start URL" max_length="40" name="start_url" type="string"/>
+        <element label="User_id" max_length="32" name="user_id" reference="x_456304_test_cere_user_cerema" type="reference"/>
+        <index name="index">
+            <element name="user_id"/>
+        </index>
+        <index name="index2">
+            <element name="licence_id"/>
+        </index>
+    </element>
+</database>

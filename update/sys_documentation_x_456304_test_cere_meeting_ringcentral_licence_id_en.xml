@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="licence_id" label="Licence_id" language="en" table="x_456304_test_cere_meeting_ringcentral">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>licence_id</element>
+            <help/>
+            <hint/>
+            <label>Licence_id</label>
+            <language>en</language>
+            <name>x_456304_test_cere_meeting_ringcentral</name>
+            <plural>Licence_ids</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-02-24 08:53:26</sys_created_on>
+            <sys_id>68c1a39bdb030010c4d627374896199e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Licence_id</sys_name>
+            <sys_package display_value="test-cerema" source="x_456304_test_cere">9bc74f69db320010c4d627374896194b</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="test-cerema">9bc74f69db320010c4d627374896194b</sys_scope>
+            <sys_update_name>sys_documentation_x_456304_test_cere_meeting_ringcentral_licence_id_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-02-24 08:53:26</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

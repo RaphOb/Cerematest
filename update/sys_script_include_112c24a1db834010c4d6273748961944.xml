@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_456304_test_cere.REST_API_CALL</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>REST_API_CALL</name>
+        <script><![CDATA[var REST_API_CALL = Class.create(); 
+
+REST_API_CALL.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+	getToken: function()
+
+{ 
+	try {
+		gs.info("call du request token");
+		var r = new sn_ws.RESTMessageV2('x_456304_test_cere.RingCentral auth', 'request token');
+// 		var body =  this.getParameter('sysparm_value');
+		r.setRequestBody("grant_type=password&username=raphael.obadia@devoteamgcloud.com&password=H!Xz!V8dy!GrHNK");
+		var response = r.execute();
+		var responseBody = response.getBody();
+		gs.info("recup reponse token");
+		var httpStatus = response.getStatusCode();
+		return responseBody;
+	} catch (ex) {
+		gs.info(ex.getMessage());
+	}
+},
+	
+	postMeeting : function() {
+		try {
+			gs.info("Entré methode postMeeting")
+			var meet = new sn_ws.RESTMessageV2('x_456304_test_cere.RingCentral auth', 'create meeting');
+			gs.info("apres le meet");
+			var body = this.getParameter('sysparm_body');
+			gs.info("DEBUG =  Body " + body);
+			meet.setRequestBody(body);
+			var bearer = this.getParameter('sysparm_token');
+			gs.info("DEBUG =  bearer " + bearer);
+			meet.setRequestHeader("Authorization","Bearer " + bearer);
+			var response = meet.execute();
+			gs.info("response post meeting :" + response.getStatusCode());
+			var respBody = response.getBody();
+			gs.info("respBody post meeting :" + respBody);
+			return response.getStatusCode();
+		} catch(ex) {
+			gs.info("Erreur dans le post meeting : " + ex.getMessage());
+		}
+	},
+
+	getMeeting: function() {
+		try {
+			gs.info("DEBUG =  deuxieme call");
+			var r = new sn_ws.RESTMessageV2('x_456304_test_cere.RingCentral auth', 'get Meetings');
+			gs.info("DEBUG =  new restmessage" + r);
+			var bearer = this.getParameter('sysparm_value');
+			gs.info("DEBUG =  bearer " + bearer);
+			r.setRequestHeader("Authorization","Bearer " + bearer);
+			gs.info("DEBUG =  apres setrequest");
+			var response = r.execute();
+			gs.info("DEBUG =  apres execute : " + response);
+			var responseBody = response.getBody();
+			
+			return responseBody;
+	} catch (ex) {
+		message =  ex.getMessage();
+		gs.log(" message catch : "  + message);
+	}
+	
+},
+	
+	deleteMeeting : function() {
+		gs.info("debut méthode deleteMeeting");
+		try {
+			var res = new sn_ws.RESTMessageV2('x_456304_test_cere.RingCentral auth', 'delete meeting');
+			var meetingId = this.getParameter('sysparm_id');
+			gs.info("meeting id : " + meetingId);
+			var bearer = this.getParameter('sysparm_value');
+			gs.info("DEBUG =  bearer " + bearer);
+			res.setRequestHeader("Authorization","Bearer " + bearer);
+			res.setStringParameter('meeting_id', meetingId);
+			var response = res.execute();
+			gs.info("DEBUG : " + response.getBody());
+			gs.info("DEBUG : " + response.getStatusCode());
+			return response.getStatusCode();
+		} catch(ex) {
+			gs.info("Erreur delete : " + ex.getMessage());
+		}
+	},
+	
+	getQuery: function () {
+		gs.info("debut methode getQuery");
+		try {
+			var  res = new GlideRecord('x_456304_test_cere_meeting_ringcentral');
+			res.query();
+			
+			while(res.next()) {
+				gs.info(res.sys_id);
+			}
+			return res;
+	} catch (ex) {
+		gs.info("query error :" + ex.getMessage());
+		}
+},
+
+
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-02-18 09:14:31</sys_created_on>
+        <sys_id>112c24a1db834010c4d6273748961944</sys_id>
+        <sys_mod_count>83</sys_mod_count>
+        <sys_name>REST_API_CALL</sys_name>
+        <sys_package display_value="test-cerema" source="x_456304_test_cere">9bc74f69db320010c4d627374896194b</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="test-cerema">9bc74f69db320010c4d627374896194b</sys_scope>
+        <sys_update_name>sys_script_include_112c24a1db834010c4d6273748961944</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-02-26 10:23:15</sys_updated_on>
+    </sys_script_include>
+</record_update>
