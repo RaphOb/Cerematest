@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_456304_test_cere.CEREMA_QUERY_TABLES</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>CEREMA_QUERY_TABLES</name>
+        <script><![CDATA[var CEREMA_QUERY_TABLES = Class.create();
+CEREMA_QUERY_TABLES.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	
+	/**
+	* Save Meetings
+	*/
+	saveMeeting: function() {
+		gs.info("Entré methode saveMeeting");
+		var newMeetings = new GlideRecord('x_456304_ring_cent_meeting');
+		var dateParam = this.getParameter('sysparm_date');
+		var joinParam = this.getParameter('sysparm_joinUrl'); 
+		var licence_id = this.getParameter('sysparm_licence');
+		var ringCentral_id = this.getParameter('sysparm_ringCentral_id');
+		var start_url = this.getParameter('sysparm_start_url');
+		var title = this.getParameter('sysparm_title');
+		var user_id = this.getParameter('sysparm_user');
+		try { 
+			newMeetings.initialize();
+			newMeetings.date = dateParam;
+			newMeetings.join_url = joinParam;
+			newMeetings.licence_id = licence_id;
+			newMeetings.ringCentral_id = ringCentral_id;
+			newMeetings.start_url = start_url;
+			newMeetings.title = title;
+			newMeetings.user = user_id;
+			nnewMeetings.insert();
+			newMeetings.query();
+			gs.info("Meeting insert");
+		} catch (ex)
+			{
+				gs.info("ERROR : " + ex.getMessage());
+			}
+		
+	},
+	
+	/**
+	*  Get Meetings to delete  from yesterday
+	*/
+	deleteMeetings : function () {
+		gs.info("Entré methode delete Meeting");
+		var meetingIdToDelete = new Set();
+		var d = new Date();
+		d.setDate(d.getDate() - 1);
+		var  meetingsCron = new GlideRecord('x_456304_test_cere_meeting_ringcentral');
+		gs.info("avant addquery");
+		try 
+		{
+			meetingsCron.addQuery('date','=',d.toISOString().slice(0,10));
+			gs.info("add Query ok");
+			meetingsCron.query();
+			while(meetingsCron.next()) {
+				meetingIdToDelete.add(meetingsCron.sys_id);
+				gs.info(meetingsCron);
+			}
+			gs.info(meetingIdToDelete);
+			return Json.stringify(meetingIdToDelete);
+		} catch (ex) 
+			{
+				gs.info("ERREUR  deleteMeetings:" + ex.geMessage());
+			}
+		
+	},
+	
+	/**
+	* Select meetings by user
+	*/
+	getMeetingsbyUser: function () {
+			gs.info("Entré methode get Meeting By User");
+		var meetings = [];
+		try 
+		{
+			var meetingsByUser = new GlideRecord('x_456304_test_cere_meeting_ringcentral');
+			meetingsByUser.addQuery('user', '=', gs.getUserID());
+			meetingsByUser.query();
+			while (meetingsByUser.next()) {
+				meetings.push = {
+					date:meetingsByUser.getValue('date'),
+					//TODO 
+				}
+			}
+			
+		} catch (ex) 
+			{
+				
+			}
+	},
+	
+	/**
+	* getAvailableLicense
+	*/
+	getAvailableLicense : function () {
+		gs.info("Entré methode getAvailableLicense");
+		var licences = [];
+		var meetingsList = [];
+		try 
+		{
+			var  meetings = new GlideRecord('x_456304_test_cere_meeting_ringcentral');
+			var dateParam = this.getParameter('sysparm_date');
+			meetings.addQuery('date', 'date',dateParam);
+			meetings.query();
+			while(meetings.next()) {
+				meetingsList.push(meetings.getValue('licence_id'));
+				gs.info("recup du meeting"  + meetings.getValue('licence_id'));
+			}
+			var allLicence = new GlideRecord('x_456304_test_cere_licence_ringcentral');
+			allLicence.query();
+
+			while(allLicence.next()) {
+				licences.push(allLicence.getValue('sys_id'));
+			}
+			gs.info("licences : " +licences);
+			gs.info("meetings : " + meetingsList );
+			var result = arr_diff(licences, meetingsList);
+
+			gs.info("result : " + result);
+			return JSON.stringify(result);
+	} catch (ex) 
+		{
+			gs.info("getAvailableLicense :" + ex);
+		}
+	},
+	
+		countUserMeeting : function () {
+		gs.info("entre de la methode countUserMeeting");
+		var count = new GlideAggregate('x_456304_test_cere_meeting_ringcentral');
+		count.addAggregate('COUNT','sys_mod_count'); 
+		count.groupBy('user');
+		count.query();
+		while(count.next()) {
+			gs.info(JSON.stringify(count.getAggregate('COUNT', 'sys_mod_count')));
+		}
+	},
+	
+
+    type: 'CEREMA_QUERY_TABLES'
+});
+
+function arr_diff (a1, a2) {
+
+    var a = [], diff = [];
+
+    for (var i = 0; i < a1.length; i++) {
+        a[a1[i]] = true;
+    }
+
+    for (var i = 0; i < a2.length; i++) {
+        if (a[a2[i]]) {
+            delete a[a2[i]];
+        } else {
+            a[a2[i]] = true;
+        }
+    }
+
+    for (var k in a) {
+        diff.push(k);
+    }
+
+    return diff;
+}
+		]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-03-02 09:06:06</sys_created_on>
+        <sys_id>daf523e9db130010c4d6273748961923</sys_id>
+        <sys_mod_count>29</sys_mod_count>
+        <sys_name>CEREMA_QUERY_TABLES</sys_name>
+        <sys_package display_value="test-cerema" source="x_456304_test_cere">9bc74f69db320010c4d627374896194b</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="test-cerema">9bc74f69db320010c4d627374896194b</sys_scope>
+        <sys_update_name>sys_script_include_daf523e9db130010c4d6273748961923</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-03-02 14:35:56</sys_updated_on>
+    </sys_script_include>
+</record_update>

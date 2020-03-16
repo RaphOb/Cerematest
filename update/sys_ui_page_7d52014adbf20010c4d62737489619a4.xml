@@ -22,11 +22,10 @@ angular.module('angularapp').controller('AngularAppCtrl',function ($scope,$http)
 //  })
 // });
 
-	
-
-	
-	
-	$scope.myVar="";
+ 
+// 	var session = gs.getSession();
+	$scope.myVar=getPreference('name');
+// 	$scope.textVar = session.getClientData('name');
 	$scope.i=0;
 	$scope.message ="";
 // 	$scope.user;
@@ -37,17 +36,16 @@ angular.module('angularapp').controller('AngularAppCtrl',function ($scope,$http)
 /**
 *Script  Query
 */
-// 	var quer = new GlideAjax('REST_API_CALL');
-// 	quer.addParam('sysparm_name','getQuery');
+// 	var quer = new GlideAjax('CEREMA_QUERY_TABLES');
+// 	quer.addParam('sysparm_name','getAvailableLicense');
 // 	quer.getXML(getQuery);
 // 	function getQuery(response) {
 // 		var  answer = response.responseXML.documentElement.getAttribute("answer");
-// 		console.log("answer: " + answer);
+// 		console.log("answer: " + JSON.parse(answer));
 		
 // 	}	
 // 		var licences = [];
 // 		var meetingsList = [];
-// 		var result = [];
 // 		try {
 // 		var  meetings = new GlideRecord('x_456304_test_cere_meeting_ringcentral');
 // 		meetings.query();
@@ -64,41 +62,60 @@ angular.module('angularapp').controller('AngularAppCtrl',function ($scope,$http)
 // 			console.log("licences : " +licences);
 // 			console.log("meetings : " + meetingsList );
 			
-// 			for (var i = 0; i <meetingsList.length; i ++ ) {
-// 				for (var j = 0; j <licences.length; j++) {
-// 					if (meetingsList[i] !== licences[j]) {
-// 						result.push(licences[j]);
-// 					}
-// 				}
-// 			}
+// 			var result = arr_diff(licences, meetingsList);
+			
+
+// 			console.log("resultat : " +result );
 // } catch (ex) {
 // 	console.log("query error :" + ex);
 // 	}
+				
 		
-// 		console.log("resultat : " +result );
-		
-		
-		
-		
+	function arr_diff (a1, a2) {
+
+    var a = [], diff = [];
+
+    for (var i = 0; i < a1.length; i++) {
+        a[a1[i]] = true;
+    }
+
+    for (var i = 0; i < a2.length; i++) {
+        if (a[a2[i]]) {
+            delete a[a2[i]];
+        } else {
+            a[a2[i]] = true;
+        }
+    }
+
+    for (var k in a) {
+        diff.push(k);
+    }
+
+    return diff;
+}
 		
 		
 /**
 *Script  call API
 */
 // 		console.log("DANS LE SUBMIT");
-// 	var gaj = new GlideAjax('REST_API_CALL');
+	var gaj = new GlideAjax('REST_API_CALL');
 
 
-//        gaj.addParam('sysparm_name','getToken');
+       gaj.addParam('sysparm_name','getToken');
 
 
-//        gaj.getXML(getToken);
+       gaj.getXML(getToken);
 
  
-// function getToken(response) {
-// 	var  answer = response.responseXML.documentElement.getAttribute("answer");
-//     console.log("answer: " + JSON.parse(answer).access_token);
-
+function getToken(response) {
+	var  answer = response.responseXML.documentElement.getAttribute("answer");
+    console.log("answer: " + JSON.parse(answer).access_token);
+	
+// 		g_user.putClientData("name", JSON.parse(answer).access_token);
+		setPreference("name",JSON.parse(answer).access_token);
+// 		session.putClientData("name",JSON.parse(answer).access_token);
+// }
 	/**get Mettings*/
 // 	var gaj2 = new GlideAjax('REST_API_CALL');
 //        gaj2.addParam('sysparm_name','getMeeting');
@@ -106,15 +123,20 @@ angular.module('angularapp').controller('AngularAppCtrl',function ($scope,$http)
 //        gaj2.getXML(getMeetings);
 	
 	/** post Meeting*/
-// 	body = {"schedule":{"timeZone":{"id":"1"},"startTime":"2020-02-25T12:00:00Z","durationInMinutes":60},"allowJoinBeforeHost":false,"startHostVideo":false,"startParticipantsVideo":false,"topic":"name du topic","meetingType":"Scheduled"};
-// 	var postmeeting =  new GlideAjax('REST_API_CALL');
-// 	postmeeting.addParam('sysparm_name', 'postMeeting');
-// 	postmeeting.addParam('sysparm_body', JSON.stringify(body));
-// 	postmeeting.addParam('sysparm_token', JSON.parse(answer).access_token);
-// 	postmeeting.getXML(getMeetings);
-// 	function getMeetings(response2) {
-// 		var  answer2 = response2.responseXML.documentElement.getAttribute("answer");
-// 		console.log("answer2: " + answer2);
+	body = {"schedule":{"timeZone":{"id":"1"},"startTime":"2020-03-06T12:00:00Z","durationInMinutes":60},"allowJoinBeforeHost":false,"startHostVideo":false,"startParticipantsVideo":false,"topic":"test du topic","meetingType":"Scheduled"};
+	var postmeeting =  new GlideAjax('REST_API_CALL');
+	postmeeting.addParam('sysparm_name', 'postMeeting');
+	postmeeting.addParam('sysparm_body', JSON.stringify(body));
+	postmeeting.addParam('sysparm_token', JSON.parse(answer).access_token);
+	postmeeting.getXML(getMeetings);
+	function getMeetings(response2) {
+		var  answer2 = response2.responseXML.documentElement.getAttribute("answer");
+		var truc = JSON.parse(answer2);
+		console.log("answer: " + truc.body);
+		console.log("id: " + truc.body.id);
+		console.log("joinuri: " +truc.body.links.joinUri);
+	}
+}
 // 		var gaj3 = new GlideAjax('REST_API_CALL');
 // 		gaj3.addParam('sysparm_name', 'deleteMeeting');
 // 		gaj3.addParam('sysparm_value',JSON.parse(answer).access_token);
@@ -129,6 +151,24 @@ angular.module('angularapp').controller('AngularAppCtrl',function ($scope,$http)
 /**
 *Script save record to table
 */
+		
+		
+// 		var createMeetings =  new GlideAjax('CEREMA_QUERY_TABLES');
+// 		createMeetings.addParam('sysparm_name', 'saveMeeting');
+// 		createMeetings.addParam('sysparm_date','2020-12-12');
+// 		createMeetings.addParam('sysparm_joinUrl','/test/Test');
+// 		createMeetings.addParam('sysparm_licence','09322f53db030010c4d6273748961949');
+// 		createMeetings.addParam('sysparm_ringCentral_id','12334');
+// 		createMeetings.addParam('sysparm_start_url','/ffdfdfd');
+// 		createMeetings.addParam('sysparm_title','TESt from client script');
+// 		createMeetings.addParam('sysparm_user','80522f53db030010c4d627374896194b');
+// 		createMeetings.getXML(getCreateMeetingsResp);
+		
+// 		function getCreateMeetingsResp(response)
+// 		{
+// 			var  answer = response.responseXML.documentElement.getAttribute("answer");
+// 			console.log("answer: " + answer);
+// 		}
 //         var newrecord = new GlideRecord('x_456304_test_cere_test2_table');
 // 		newrecord.Username = g_user.userName;
 // 		newrecord.initialize();
@@ -147,31 +187,78 @@ angular.module('angularapp').controller('AngularAppCtrl',function ($scope,$http)
 		/**
 		* Scrit select * where date = yesterday 
 		*/
-		var meetingIdToDelete = new Set();
-		console.log("avant la date");
-		var d = new Date();
-		d.setDate(d.getDate() - 1);
-		console.log(d.toISOString().slice(0,10));
-		var  meetingsCron = new GlideRecord('x_456304_test_cere_meeting_ringcentral');
-		console.log("avant addquery");
-		meetingsCron.addQuery('date','=',d.toISOString().slice(0,10));
-		console.log("add Query ok");
-		meetingsCron.query();
-		while(meetingsCron.next()) {
-			console.log(" les res ");
-			meetingIdToDelete.add(meetingsCron.sys_id);
-			console.log(meetingsCron);
-		}
+// 		var meetingIdToDelete = new Set();
+// 		console.log("avant la date");
+// 		var d = new Date();
+// 		d.setDate(d.getDate() - 1);
+// 		console.log(d.toISOString().slice(0,10));
+// 		var  meetingsCron = new GlideRecord('x_456304_test_cere_meeting_ringcentral');
+// 		console.log("avant addquery");
+// 		meetingsCron.addQuery('date','=',d.toISOString().slice(0,10));
+// 		console.log("add Query ok");
+// 		meetingsCron.query();
+// 		while(meetingsCron.next()) {
+// 			console.log(" les res ");
+// 			meetingIdToDelete.add(meetingsCron.sys_id);
+// 			console.log(meetingsCron);
+// 		}
 		
-		console.log(meetingIdToDelete);
+// 		console.log(meetingIdToDelete);
 		
 		
-	};
+		/**
+		* Query  : Select * from User where email = <email>
+		* Query  : Select * from meeting where user_id = <sys_id_user>
+		*/
+		
+// 		var  getUserMeetings = new GlideRecord('x_456304_test_cere_meeting_ringcentral');
+// 		getUserMeetings.addQuery('user', '=', gs.getUserID());
+// 		getUserMeetings.query();
+// 		while(getUserMeetings.next()) {
+// 			console.log(meetingIdToDelete.date);
+// 		}
+		
+		/**
+		* Glide agregate count 
+		*/
+// var gaj = new GlideAjax('REST_API_CALL');
+
+//        gaj.addParam('sysparm_name','countUserMeeeting');
+
+//        gaj.getXML(getToken);
+
+// function getToken(response) {
+// 	var  answer = response.responseXML.documentElement.getAttribute("answer");
+//     console.log("answer: " + answer);
+// 	}
+// 	};
 	
-	$scope.clearTxt = function() {
-		$scope.myVar="";
-		$scope.i++;
-		alert("the myVar value was cleare" + $scope.i +"times by " + g_user.userName + ".");
+// 	$scope.clearTxt = function() {
+// 		$scope.myVar="";
+// 		$scope.i++;
+// 		alert("the myVar value was cleare" + $scope.i +"times by " + g_user.userName + ".");
+		
+		
+		//Test meeting
+// 		var gr = new GlideRecord('x_456304_ring_cent_meeting');
+//  gr.addEncodedQuery('dateONToday@javascript:gs.beginningOfToday()@javascript:gs.endOfToday()');
+// gr.addQuery('date', '=', 'today');
+
+// gr.query();
+
+// while (gr.next()) {
+// 	gs.info("sheduled job avec la table meeting");
+// 	gs.info("query " + JSON.stringify(gr));
+// console.log("query :"+ gr.user);
+// 	var gr1 = new GlideRecord('x_456304_ring_cent_user');
+// 	gr1.addQuery('sys_id', gr.user);
+// 	gr1.query();
+// 	while (gr1.next()) {
+// 		console.log(gr1.email);
+// 	}
+//     gs.eventQueue("x_456304_ring_cent.meeting_expiring", gr, gr.user.email);
+
+// }
 	};
 	
 });
@@ -194,14 +281,14 @@ angular.module('angularapp').controller('AngularAppCtrl',function ($scope,$http)
 	<input type="text" ng-model="userinput"  placeholder="Enter some thext here"></input>
 		<input type="submit" value="submit"></input>
 		</form>
-
+		{{textVar}}
 	<div class="jumbotron">
 		<h1 class="display-3"> JPP laaa</h1>
 		<hr class="m-y-2"/>
 	</div>	
 	<button ng-click="clearTxt()" type="button" class="btn btn-primary"> Clear text</button>
 	
-	{{message | json}}
+	{{myVar | json}}
 <sn-record-picker field="location" table="'cmn_location'" display-field="'name'" value-field="'sys_id'" search-fields="'name'" page-size="100" ></sn-record-picker>
 
 
@@ -232,13 +319,13 @@ angular.module('angularapp').controller('AngularAppCtrl',function ($scope,$http)
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-02-07 13:50:16</sys_created_on>
         <sys_id>7d52014adbf20010c4d62737489619a4</sys_id>
-        <sys_mod_count>216</sys_mod_count>
+        <sys_mod_count>281</sys_mod_count>
         <sys_name>Angular hello world</sys_name>
         <sys_package display_value="test-cerema" source="x_456304_test_cere">9bc74f69db320010c4d627374896194b</sys_package>
         <sys_policy/>
         <sys_scope display_value="test-cerema">9bc74f69db320010c4d627374896194b</sys_scope>
         <sys_update_name>sys_ui_page_7d52014adbf20010c4d62737489619a4</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-02-27 10:08:42</sys_updated_on>
+        <sys_updated_on>2020-03-03 10:14:01</sys_updated_on>
     </sys_ui_page>
 </record_update>
